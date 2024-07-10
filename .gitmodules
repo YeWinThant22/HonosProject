@@ -1,0 +1,3 @@
+[submodule "YOLO_Waste_Det_And_Cls_Project/Notes/datatraining/YOLOv5_Model"]
+	path = YOLO_Waste_Det_And_Cls_Project/Notes/datatraining/YOLOv5_Model
+	url = https://github.com/YeWinThant22/HonosProject.git
