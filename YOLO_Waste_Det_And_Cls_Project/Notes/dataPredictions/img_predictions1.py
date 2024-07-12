@@ -75,9 +75,16 @@ for ind in index:
     class_name = labels[classes_id]
 
     text = f'{class_name}: {boxb_conf}%'
+    
+    # Draw the bounding box
     cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+    
+    # Draw the background rectangle for the text
     cv2.rectangle(image, (x, y - 30), (x + w, y), (255, 255, 255), -1)
-    cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_PLAIN, 0.7, (0, 0, 0), 1)
+    
+    # Put text with larger size and bold
+    cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 2, cv2.LINE_AA)
+
 
 cv2.imshow('original', img)
 cv2.imshow('data_predictions_yolo', image)

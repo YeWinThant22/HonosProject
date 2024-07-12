@@ -3,7 +3,6 @@
 
 import cv2
 import numpy as np
-import os
 import yaml
 from yaml.loader import SafeLoader
 
@@ -36,8 +35,6 @@ class YOLO_Pred():
         self.yolo.setInput(blob)
         predits = self.yolo.forward()  # detection or prediction from YOLO Model
 
-        print(predits.shape)
-
         # Non Maximum Suppression
         # step-1: filter detection based on confidence (0.4) and probability score (0.25)
         detections = predits[0]
@@ -69,7 +66,7 @@ class YOLO_Pred():
                     box = np.array([left, top, width, height])
 
                     # append values into the list
-                    confidences.append(confidence)
+                    confidences.append(class_score)  # Use class score for the confidence
                     boxes.append(box)
                     classes.append(class_id)
 
@@ -78,26 +75,35 @@ class YOLO_Pred():
         confidences_np = np.array(confidences).tolist()
 
         # NMS
-        index = cv2.dnn.NMSBoxes(boxes_np, confidences_np, 0.13, 0.45).flatten()
+        indices = cv2.dnn.NMSBoxes(boxes_np, confidences_np, 0.13, 0.45)
+
+        # Check if indices are empty
+        if len(indices) > 0:
+            indices = indices.flatten()
+        else:
+            indices = []
 
         # Draw the Bounding Box
-        for ind in index:
+        for ind in indices:
             # extract bounding box
             x, y, w, h = boxes_np[ind]
-            box_conf = int(confidences_np[ind] * 100)
+            box_conf = confidences_np[ind]  # Use the confidence directly
             classes_id = classes[ind]
             class_name = self.labels[classes_id]
             colors = self.colors_generate(classes_id)
 
-            text = f'{class_name}: {box_conf}%'
-            # print(text)
-
-            # for rectangle
+            text = f'{class_name} {box_conf:.2f}'  # Format the text to show class and confidence
+            # Draw rectangle
             cv2.rectangle(image, (x, y), (x + w, y + h), colors, 2)
-            cv2.rectangle(image, (x, y - 30), (x + w, y), colors, -1)
+            
+            # Draw the background rectangle for the text
+            cv2.rectangle(image, (x, y - 30), (x + w, y), (255, 255, 255), -1)
+            
+            # Put text with larger size and bold
+            cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 2, cv2.LINE_AA)
 
-            # for Text
-            cv2.putText(image, text, (x, y - 10), cv2.FONT_HERSHEY_PLAIN, 0.7, (0, 0, 0), 1)
+            # Print class name
+            print(f'Detected: {class_name} with confidence {box_conf:.2f}')
 
         return image
 
@@ -107,4 +113,3 @@ class YOLO_Pred():
         colors = np.random.randint(100, 255, size=(self.nc, 3)).tolist()
 
         return tuple(colors[ID])
-        
