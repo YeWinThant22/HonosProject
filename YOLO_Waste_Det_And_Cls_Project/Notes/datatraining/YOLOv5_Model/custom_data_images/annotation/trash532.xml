@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data_images</folder>
+	<filename>trash532.jpg</filename>
+	<path>/Users/yewinthant/Desktop/Imp_Honos_Project/YOLO_Waste_Det_And_Cls_Project/Notes/datapreparation/data_images/trash532.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>301</width>
+		<height>167</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>trash</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>50</xmin>
+			<ymin>2</ymin>
+			<xmax>253</xmax>
+			<ymax>167</ymax>
+		</bndbox>
+	</object>
+</annotation>

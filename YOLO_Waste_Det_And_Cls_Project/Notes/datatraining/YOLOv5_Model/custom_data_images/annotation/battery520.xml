@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data_images</folder>
+	<filename>battery520.jpg</filename>
+	<path>/Users/yewinthant/Desktop/Imp_Honos_Project/YOLO_Waste_Det_And_Cls_Project/Notes/datapreparation/data_images/battery520.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>206</width>
+		<height>245</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>battery</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>45</xmin>
+			<ymin>26</ymin>
+			<xmax>145</xmax>
+			<ymax>210</ymax>
+		</bndbox>
+	</object>
+</annotation>

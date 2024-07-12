@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data_images</folder>
+	<filename>biological690.jpg</filename>
+	<path>/Users/yewinthant/Desktop/Imp_Honos_Project/YOLO_Waste_Det_And_Cls_Project/Notes/datapreparation/data_images/biological690.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>263</width>
+		<height>192</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>biological</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>103</xmin>
+			<ymin>23</ymin>
+			<xmax>205</xmax>
+			<ymax>153</ymax>
+		</bndbox>
+	</object>
+</annotation>

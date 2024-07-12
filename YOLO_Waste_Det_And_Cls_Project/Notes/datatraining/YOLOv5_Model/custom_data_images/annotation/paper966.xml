@@ -1,0 +1,26 @@
+<annotation>
+	<folder>data_images</folder>
+	<filename>paper966.jpg</filename>
+	<path>/Users/yewinthant/Desktop/Imp_Honos_Project/YOLO_Waste_Det_And_Cls_Project/Notes/datapreparation/data_images/paper966.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>384</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>paper</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>35</xmin>
+			<ymin>1</ymin>
+			<xmax>394</xmax>
+			<ymax>376</ymax>
+		</bndbox>
+	</object>
+</annotation>

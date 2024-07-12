@@ -1,0 +1,4 @@
+train: custom_data_images/train
+val: custom_data_images/test
+nc: 8
+names: ['battery', 'biological', 'cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
