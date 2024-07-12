@@ -1,0 +1,4 @@
+train: images/train
+val: images/test
+nc: 8
+names: ['battery', 'biological', 'cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
